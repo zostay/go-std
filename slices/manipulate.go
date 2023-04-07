@@ -23,8 +23,8 @@ func DeleteAllValues[T comparable](slice []T, s T) []T {
 	return slice
 }
 
-func Push[T any](slice []T, v T) []T {
-	return append(slice, v)
+func Push[T any](slice []T, v ...T) []T {
+	return append(slice, v...)
 }
 
 func Pop[T any](slice []T) (T, []T) {
@@ -35,10 +35,14 @@ func Shift[T any](slice []T) (T, []T) {
 	return slice[0], slice[1:]
 }
 
-func Unshift[T any](slice []T, v T) []T {
+func Unshift[T any](slice []T, vs ...T) []T {
 	var zero T
-	slice = append(slice, zero)
-	copy(slice[1:], slice[:])
-	slice[0] = v
+	for range vs {
+		slice = append(slice, zero)
+	}
+	copy(slice[len(vs):], slice[:])
+	for i, v := range vs {
+		slice[i] = v
+	}
 	return slice
 }
