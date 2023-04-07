@@ -1,8 +1,26 @@
-package slice
+package slices
 
 func Delete[T any](slice []T, i int) []T {
 	copy(slice[i:], slice[i+1:])
 	return slice[:len(slice)-1]
+}
+
+func DeleteValue[T comparable](slice []T, s T) []T {
+	for i, v := range slice {
+		if v == s {
+			return Delete[T](slice, i)
+		}
+	}
+	return slice
+}
+
+func DeleteAllValues[T comparable](slice []T, s T) []T {
+	for i := len(slice) - 1; i >= 0; i-- {
+		if slice[i] == s {
+			slice = Delete[T](slice, i)
+		}
+	}
+	return slice
 }
 
 func Push[T any](slice []T, v T) []T {

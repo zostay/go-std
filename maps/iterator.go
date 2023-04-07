@@ -23,6 +23,10 @@ func (i *Iterator[K, V]) Next() bool {
 	return i.cursor < len(i.data)
 }
 
+func (i *Iterator[K, V]) Index() int {
+	return i.cursor
+}
+
 func (i *Iterator[K, V]) ID() K {
 	return i.index[i.cursor]
 }

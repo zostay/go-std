@@ -1,4 +1,4 @@
-package slice
+package slices
 
 type Iterator[T any] struct {
 	slice  []T
@@ -16,6 +16,10 @@ func (i *Iterator[T]) Len() int {
 func (i *Iterator[T]) Next() bool {
 	i.cursor++
 	return i.cursor < len(i.slice)
+}
+
+func (i *Iterator[T]) Index() int {
+	return i.ID()
 }
 
 func (i *Iterator[T]) ID() int {
