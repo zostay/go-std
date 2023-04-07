@@ -1,4 +1,4 @@
-module github.com/zostay/collection-utils
+module github.com/zostay/go-std
 
 go 1.19
 
