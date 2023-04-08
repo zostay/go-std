@@ -14,6 +14,7 @@ addition to `==` and `!=`. Then we provide the following operations on them:
  * `Max(a, b)`
  * `Min(a, b)`
  * `Less(a, b)`
+ * `Zero()`
 
 Then we create a generic interface for doing the same thing generally, which
 looks similar to what the built-in `sort` package does but then implements the
@@ -48,6 +49,7 @@ Frequently, you need to get just the keys or values off of a slice. This
 provides those operations among others for maps:
 
  * `Copy(dst, src)`
+ * `CopyInit(dst, src)`
  * `Keys(map)`
  * `Values(map)`
  * `KVs(map)`
@@ -69,7 +71,8 @@ And then it also provides these functions to work on sets:
  * `Intersection(b, b)`
  * `Union(a, b)`
  * `Difference(a, b)`
- * `Copy(as, b)`
+ * `Copy(dst, src)`
+ * `CopyInit(dst, src)`
 
 # String Operations
 
@@ -78,3 +81,4 @@ built-in `strings` package:
 
  * `ContainsOnly(s, chars)`
  * `FromRange(a, z)`
+ * `Reverse(s)`
