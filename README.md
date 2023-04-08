@@ -4,7 +4,7 @@ There are a lot of common operations simply missing from the Golang builtin
 library. This makes up for that deficiency. Here's a summary of some of the
 provided tools:
 
-# Generic/Interface Comparison
+## Generic/Interface Comparison
 
 The built-in comparable generic is pretty weak. Just good enough for map key
 types, but not much else. We provide a compare.Able interface which covers all
@@ -24,7 +24,7 @@ functions to make such an interface even more useful:
  * `MinI(a, b)`
  * `LessI(a, b)`
 
-# Generic Iteration
+## Generic Iteration
 
 Iteration in Golang is provided by using a `for`-loop with the `range` keyword.
 This has some deficiencies, however. This iterator cannot be passed around
@@ -32,7 +32,7 @@ in-progress. Also, when iterating over maps, the iterator is over key/value
 pairs rather than index/value pairs. Sometimes it's also helpful to have that
 index.
 
-# Generic List Operations for Slices
+## Generic List Operations for Slices
 
 Many common slice operations are a bit tedious to implement. It's easy to get
 off-by-one errors, so the following ops are provided:
@@ -43,7 +43,7 @@ off-by-one errors, so the following ops are provided:
  * `Shift(slice)`
  * `Unshift(slice, value)`
 
-# Generic Map Transformations
+## Generic Map Transformations
 
 Frequently, you need to get just the keys or values off of a slice. This
 provides those operations among others for maps:
@@ -54,7 +54,7 @@ provides those operations among others for maps:
  * `Values(map)`
  * `KVs(map)`
 
-# Generic Sets
+## Generic Sets
 
 There's no built-in set operation. This library provides one. It provides the
 following methods on sets:
@@ -74,7 +74,7 @@ And then it also provides these functions to work on sets:
  * `Copy(dst, src)`
  * `CopyInit(dst, src)`
 
-# String Operations
+## String Operations
 
 Some additional string operations are provided that are missing from the
 built-in `strings` package:
