@@ -42,6 +42,7 @@ off-by-one errors, so the following ops are provided:
  * `Pop(slice)`
  * `Shift(slice)`
  * `Unshift(slice, value)`
+ * `Concat(slice...)`
 
 ## Generic Map Transformations
 

@@ -1,3 +1,7 @@
+WIP  TBD
+
+ * Added slices.Concat
+
 v0.0.0  2023-04-08
 
  * Initial release.
