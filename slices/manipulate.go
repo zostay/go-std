@@ -65,3 +65,21 @@ func Unshift[T any](slice []T, vs ...T) []T {
 	}
 	return slice
 }
+
+// Concat will concatenate any set of 0 or more slices into a single slice
+// containing the values of all the passed slices.
+func Concat[T any](slices ...[]T) []T {
+	totalLen := 0
+	for _, s := range slices {
+		totalLen += len(s)
+	}
+
+	out := make([]T, totalLen)
+	start := 0
+	for _, s := range slices {
+		copy(out[start:], s)
+		start += len(s)
+	}
+
+	return out
+}

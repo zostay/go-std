@@ -156,3 +156,13 @@ func TestUnshift(t *testing.T) {
 
 	assert.Equal(t, []int{2, 3, 1}, s)
 }
+
+func TestConcat(t *testing.T) {
+	a := []int{1, 2, 3}
+	b := []int{4, 5}
+	c := []int{}
+	d := []int{6, 7, 8}
+
+	e := slices.Concat(a, b, c, d)
+	assert.Equal(t, []int{1, 2, 3, 4, 5, 6, 7, 8}, e)
+}
