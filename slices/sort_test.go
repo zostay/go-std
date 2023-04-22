@@ -30,7 +30,7 @@ func TestSample(t *testing.T) {
 	}
 
 	for _, in := range ins {
-		is := slices.Sample(3, in)
+		is := slices.Sample(in, 3)
 
 		// all values are from the original list
 		assert.Len(t, is, generic.Min(len(in), 3))

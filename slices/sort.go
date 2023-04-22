@@ -15,7 +15,7 @@ func Shuffle[T any](in []T) []T {
 // Sample selects count items from the list randomly and returns a new list with
 // the selected items. If count is larger than the size of the input list, this
 // works the same as Shuffle.
-func Sample[T any](count int, in []T) []T {
+func Sample[T any](in []T, count int) []T {
 	// TODO this is not very efficient
 	out := make([]T, len(in))
 	copy(out, in)
