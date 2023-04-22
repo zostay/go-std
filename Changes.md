@@ -1,4 +1,4 @@
-WIP  TBD
+v0.0.2  2023-04-21
 
 * Small improvement to the behavior/performance of slices.Delete
 * Added slices.Map, slices.Reduce, slices.ReduceAcc, slices.Reductions,
