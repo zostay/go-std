@@ -9,37 +9,40 @@ import (
 )
 
 func TestDelete(t *testing.T) {
-	var slice = []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+	var slice = []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 
-	slice = slices.Delete[int](slice, 7)
-	slice = slices.Delete[int](slice, 4)
+	slice = slices.Delete(slice, 10)
+	assert.Equal(t, []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, slice)
+
+	slice = slices.Delete(slice, 7)
+	slice = slices.Delete(slice, 4)
 	assert.Equal(t, []int{0, 1, 2, 3, 5, 6, 8, 9}, slice)
 
-	slice = slices.Delete[int](slice, 3)
-	slice = slices.Delete[int](slice, 6)
+	slice = slices.Delete(slice, 3)
+	slice = slices.Delete(slice, 6)
 	assert.Equal(t, []int{0, 1, 2, 5, 6, 8}, slice)
 
-	slice = slices.Delete[int](slice, 0)
+	slice = slices.Delete(slice, 0)
 	assert.Equal(t, []int{1, 2, 5, 6, 8}, slice)
 
 	assert.Panics(t, func() {
-		slice = slices.Delete[int](slice, -1)
+		slice = slices.Delete(slice, -1)
 	})
 
 	assert.Panics(t, func() {
-		slice = slices.Delete[int](slice, 5)
+		slice = slices.Delete(slice, 5)
 	})
 
-	slice = slices.Delete[int](slice, 0)
-	slice = slices.Delete[int](slice, 0)
-	slice = slices.Delete[int](slice, 0)
-	slice = slices.Delete[int](slice, 0)
-	slice = slices.Delete[int](slice, 0)
+	slice = slices.Delete(slice, 0)
+	slice = slices.Delete(slice, 0)
+	slice = slices.Delete(slice, 0)
+	slice = slices.Delete(slice, 0)
+	slice = slices.Delete(slice, 0)
 
 	assert.Empty(t, slice)
 
 	assert.Panics(t, func() {
-		slice = slices.Delete[int](slice, 0)
+		slice = slices.Delete(slice, 0)
 	})
 }
 

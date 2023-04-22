@@ -3,7 +3,9 @@ package slices
 // Delete will remove the data at index i from the given slice. This works by
 // copying the data after it back and then shortening the slice by one element.
 func Delete[T any](slice []T, i int) []T {
-	copy(slice[i:], slice[i+1:])
+	if i != len(slice)-1 {
+		copy(slice[i:], slice[i+1:])
+	}
 	return slice[:len(slice)-1]
 }
 
