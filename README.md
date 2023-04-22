@@ -43,6 +43,26 @@ off-by-one errors, so the following ops are provided:
  * `Shift(slice)`
  * `Unshift(slice, value)`
  * `Concat(slice...)`
+ * `Map(slice, mapper)`
+ * `Reduce(slice, reducer)`
+ * `Reductions(slice, reducer)`
+ * `ReduceAcc(slice, start, reducer)`
+ * `ReductionsAcc(slice, start, reducer)`
+ * `Sum(slice)`
+ * `Product(slice)`
+ * `Grep(slice, predicate)`
+ * `Any(slice, predicate)`
+ * `All(slice, predicate)`
+ * `None(slice, predicate)`
+ * `NotAll(slice, predicate)`
+ * `First(slice, predicate)`
+ * `FirstOr(slice, missed, predicate)`
+ * `Head(slice, n)`
+ * `Tail(slice, n)`
+ * `Shuffle(slice)`
+ * `Sample(slice, n)`
+ * `Uniq(slice)`
+ * `UniqInPlace(slice)`
 
 ## Generic Map Transformations
 
