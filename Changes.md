@@ -1,3 +1,14 @@
+WIP  TBD
+
+* Small improvement to the behavior/performance of slices.Delete
+* Added slices.Map, slices.Reduce, slices.ReduceAcc, slices.Reductions,
+  slices.ReductionAcc, slices.Sum, slices.Product, slices.Grep, slices.Any,
+  slices.All, slices.None, slices.NotAll, slices.First, slices.FirstOr
+* functions.
+* Added slices.Head and slices.Tail functions.
+* Added slices.Shuffle, slices.Sample, slices.Uniq, and slices.UniqInPlace
+  functions.
+
 v0.0.1  2023-04-17
 
  * Added slices.Concat
