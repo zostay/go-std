@@ -4,7 +4,7 @@ v0.0.2  2023-04-21
  * Added slices.Map, slices.Reduce, slices.ReduceAcc, slices.Reductions,
    slices.ReductionAcc, slices.Sum, slices.Product, slices.Grep, slices.Any,
    slices.All, slices.None, slices.NotAll, slices.First, slices.FirstOr
- * functions.
+   functions.
  * Added slices.Head and slices.Tail functions.
  * Added slices.Shuffle, slices.Sample, slices.Uniq, and slices.UniqInPlace
    functions.
