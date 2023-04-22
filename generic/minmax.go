@@ -32,18 +32,6 @@ type ComparableInterface interface {
 	Compare(b ComparableInterface) Comparison
 }
 
-// Comparable identifies all those types that can be compared using <, >, <=,
-// and >= operations.
-//
-// This is what "comparable" means in most languages whereas in Golang,
-// "comparable" only means values of those types can be checked for equivalence.
-type Comparable interface {
-	~uint8 | ~uint16 | ~uint32 | ~uint64 |
-		~int8 | ~int16 | ~int32 | ~int64 |
-		~float32 | ~float64 |
-		~uint | ~int
-}
-
 // Compare provides a generic comparison function for any two Comparable values
 // of the same type. This method will return a negative value if a is less than
 // b, a positive value if a is greater than b, and 0 if the values are
