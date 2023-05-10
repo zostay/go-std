@@ -8,6 +8,7 @@ v0.0.2  2023-04-21
  * Added slices.Head and slices.Tail functions.
  * Added slices.Shuffle, slices.Sample, slices.Uniq, and slices.UniqInPlace
    functions.
+ * Added structs.ApplyDefaults function.
 
 v0.0.1  2023-04-17
 
