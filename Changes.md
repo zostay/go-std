@@ -1,4 +1,4 @@
-WIP  TBD
+v0.0.4  2023-05-27
 
  * Added a LICENSE file.
 
