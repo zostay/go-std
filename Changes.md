@@ -1,3 +1,7 @@
+WIP  TBD
+
+ * Added a LICENSE file.
+
 v0.0.3  2023-05-09
 
  * Added structs.ApplyDefaults function.
