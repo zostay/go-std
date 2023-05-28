@@ -1,3 +1,9 @@
+WIP  TBD
+
+ * Added generic.CountDeltas function.
+ * Added slices.FromRange function.
+ * Added strings.Increment, strings.IncrementWithSets, strings.IncrementSet, strings.NumericSet, strings.NumericSetRange, strings.LetterSet, strings.LetterSetRange, and strings.SeqSet.
+
 v0.0.4  2023-05-27
 
  * Added a LICENSE file.
