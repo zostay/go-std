@@ -11,6 +11,7 @@ types, but not much else. We provide a compare.Able interface which covers all
 the types that can be compared using `<`, `>`, `<=`, and `>=` operators, in
 addition to `==` and `!=`. Then we provide the following operations on them:
 
+ * `CountDeltas(a, b, delta)`
  * `Max(a, b)`
  * `Min(a, b)`
  * `Less(a, b)`
@@ -37,6 +38,7 @@ index.
 Many common slice operations are a bit tedious to implement. It's easy to get
 off-by-one errors, so the following ops are provided:
 
+ * `FromRange(a, z, delta)`
  * `Delete(slice, index)`
  * `Push(slice, value)`
  * `Pop(slice)`
@@ -103,3 +105,7 @@ built-in `strings` package:
  * `ContainsOnly(s, chars)`
  * `FromRange(a, z)`
  * `Reverse(s)`
+ * `Increment(s)`
+ * `IncrementWithSets(s, sets)`
+
+The latter two operations might warrant their own library, but I put them here for now.
