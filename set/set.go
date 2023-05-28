@@ -1,5 +1,7 @@
 package set
 
+import "github.com/zostay/go-std/maps"
+
 // Set provides a generic set data type. A set is an unsorted list of objects
 // where each object is unique, as defined by the equivalence operation. These
 // are implemented using a map. Any value that can be used as a map key can be
@@ -52,6 +54,12 @@ func (s Set[T]) SubsetOf(o Set[T]) bool {
 		}
 	}
 	return true
+}
+
+// Keys returns all the keys in the set as a slice. The return slice is
+// unsorted and the keys returned could be in any order.
+func (s Set[T]) Keys() []T {
+	return maps.Keys(s)
 }
 
 // Intersects returns true if any value in set a is found within set b.

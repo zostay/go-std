@@ -108,6 +108,32 @@ func TestSet_SubsetOf(t *testing.T) {
 	assert.True(t, s3.SubsetOf(s3))
 }
 
+func TestSet_Keys(t *testing.T) {
+	s1 := set.New(1, 2, 3)
+	s2 := set.New(2, 3)
+	s3 := set.New(3, 4)
+	s4 := set.New[int]()
+
+	keys := s1.Keys()
+	assert.Len(t, keys, 3)
+	assert.Contains(t, keys, 1)
+	assert.Contains(t, keys, 2)
+	assert.Contains(t, keys, 3)
+
+	keys = s2.Keys()
+	assert.Len(t, keys, 2)
+	assert.Contains(t, keys, 2)
+	assert.Contains(t, keys, 3)
+
+	keys = s3.Keys()
+	assert.Len(t, keys, 2)
+	assert.Contains(t, keys, 3)
+	assert.Contains(t, keys, 4)
+
+	keys = s4.Keys()
+	assert.Len(t, keys, 0)
+}
+
 func TestDifference(t *testing.T) {
 	s1 := set.New(1, 2, 3)
 	s2 := set.New(3, 4, 5)

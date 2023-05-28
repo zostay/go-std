@@ -1,3 +1,7 @@
+WIP  TBD
+
+ * Added set.Set.Keys method.
+
 v0.1.0  2023-05-27
 
  * Added generic.CountDeltas function.

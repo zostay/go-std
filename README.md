@@ -87,6 +87,7 @@ following methods on sets:
  * `Delete(val)`
  * `Len()`
  * `SubsetOf(set)`
+ * `Keys()`
 
 And then it also provides these functions to work on sets:
 
