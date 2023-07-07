@@ -1,4 +1,4 @@
-WIP  TBD
+v0.1.2  2023-07-07
 
  * Fix a silly release typo.
 
