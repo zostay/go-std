@@ -1,4 +1,8 @@
-vv0.1.1  2023-07-07
+WIP  TBD
+
+ * Fix a silly release typo.
+
+v0.1.1  2023-07-07
 
  * Added set.Set.Keys method.
 
