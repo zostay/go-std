@@ -1,3 +1,8 @@
+TBD  WIP
+
+ * Added generic.FirstNonZero and generic.FirstNonNil.
+ * Added maps.Merge.
+
 v0.1.2  2023-07-07
 
  * Fix a silly release typo.

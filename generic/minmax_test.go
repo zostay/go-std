@@ -71,9 +71,3 @@ func TestMinI(t *testing.T) {
 	assert.Equal(t, b, generic.MinI(a, b))
 	assert.Equal(t, b, generic.MinI(b, a))
 }
-
-func TestZero(t *testing.T) {
-	assert.Equal(t, 0, generic.Zero[int]())
-	assert.Equal(t, "", generic.Zero[string]())
-	assert.Equal(t, rune(0), generic.Zero[rune]())
-}

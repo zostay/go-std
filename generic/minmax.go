@@ -93,8 +93,3 @@ func Less[T Comparable](a, b T) bool {
 func LessI(a, b ComparableInterface) bool {
 	return a.Compare(b) < 0
 }
-
-// Zero will return the zero-value of any type.
-func Zero[T any]() (v T) {
-	return
-}

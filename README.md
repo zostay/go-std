@@ -16,6 +16,8 @@ addition to `==` and `!=`. Then we provide the following operations on them:
  * `Min(a, b)`
  * `Less(a, b)`
  * `Zero()`
+ * `FirstNonZero(...vals)`
+ * `FirstNonNil(...vals)`
 
 Then we create a generic interface for doing the same thing generally, which
 looks similar to what the built-in `sort` package does but then implements the
@@ -76,6 +78,13 @@ provides those operations among others for maps:
  * `Keys(map)`
  * `Values(map)`
  * `KVs(map)`
+
+## Generic Map Operations
+
+There are a lot of common map operations that are missing from the built-in
+standard library:
+
+ * `Merge(...maps)`
 
 ## Generic Sets
 
