@@ -1,4 +1,4 @@
-TBD  WIP
+WIP  TBD
 
  * Added generic.FirstNonZero and generic.FirstNonNil.
  * Added maps.Merge.
