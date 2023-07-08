@@ -1,4 +1,4 @@
-WIP  TBD
+v0.2.0  2023-07-08
 
  * Added generic.FirstNonZero and generic.FirstNonNil.
  * Added maps.Merge.
