@@ -45,6 +45,35 @@ func TestMap(t *testing.T) {
 	assert.Equal(t, []string{}, ss)
 }
 
+func TestMapSlice(t *testing.T) {
+	halveTheOdds := func(i int) []float64 {
+		if i%2 == 1 {
+			return []float64{float64(i) / 2.0}
+		} else {
+			return []float64{}
+		}
+	}
+
+	in := []int{1, 2, 3}
+	ss := slices.MapSlice(in, halveTheOdds)
+	assert.Equal(t, []float64{0.5, 1.5}, ss)
+	ss = slices.MapSlice([]int{}, halveTheOdds)
+	assert.Equal(t, []float64{}, ss)
+}
+
+func TestMapMap(t *testing.T) {
+	stringToInt := func(in int) map[string]int {
+		return map[string]int{
+			strconv.Itoa(in): in,
+		}
+	}
+	in := []int{1, 2, 3}
+	ss := slices.MapMap(in, stringToInt)
+	assert.Equal(t, map[string]int{"1": 1, "2": 2, "3": 3}, ss)
+	ss = slices.MapMap([]int{}, stringToInt)
+	assert.Equal(t, map[string]int{}, ss)
+}
+
 func TestReduce(t *testing.T) {
 	in := []int{1, 2, 3}
 	s := slices.Reduce(in, subtract)

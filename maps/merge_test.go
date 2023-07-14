@@ -28,6 +28,23 @@ func TestMerge(t *testing.T) {
 	}, maps.Merge(a, b, c))
 }
 
+func TestMergeInPlace(t *testing.T) {
+	a := map[string]int{"a": 1, "b": 2}
+	b := map[string]int{"c": 3, "d": 4}
+	c := map[string]int{"a": 5, "b": 6, "c": 7}
+
+	assert.Equal(t, map[string]int{}, maps.MergeInPlace(map[string]int{}))
+	assert.Equal(t, map[string]int{
+		"a": 1, "b": 2,
+	}, maps.MergeInPlace(a))
+	assert.Equal(t, map[string]int{
+		"a": 1, "b": 2, "c": 3, "d": 4,
+	}, maps.MergeInPlace(a, b))
+	assert.Equal(t, map[string]int{
+		"a": 5, "b": 6, "c": 7, "d": 4,
+	}, maps.MergeInPlace(a, c))
+}
+
 func TestDiff(t *testing.T) {
 	a := map[string]int{"one": 1, "two": 2, "three": 3, "four": 4}
 	b := map[string]int{"one": 5, "three": 6, "five": 7, "seven": 8}

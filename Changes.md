@@ -1,3 +1,9 @@
+WIP  TBD
+
+ * Added maps.MergeInPlace.
+ * Added slices.MapSlice and slices.MapMap.
+ * maps.Merge now allocates room equal to the size of all input maps in the output map.
+
 v0.3.0  2023-07-13
 
  * Added slices.FirstIndex and slices.GrepIndex.

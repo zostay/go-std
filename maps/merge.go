@@ -1,17 +1,31 @@
 package maps
 
-import "github.com/zostay/go-std/generic"
+import (
+	"github.com/zostay/go-std/generic"
+)
 
-// Merge maps into a single map. Keys in maps later in the list will overwrite
-// keys found in earlier maps.
+// Merge maps many maps into a single map. Keys in maps later in the list will
+// overwrite keys found in earlier maps. The returned map will be a newly
+// allocated map.
 func Merge[K comparable, V any](maps ...map[K]V) map[K]V {
-	out := map[K]V{}
+	size := 0
 	for _, m := range maps {
+		size += len(m)
+	}
+	return MergeInPlace(make(map[K]V, size), maps...)
+}
+
+// MergeInPlace maps many maps into a single map. The base map will be updated
+// to include all the pairs in the merge maps. Each map will be itereated in
+// order with values in later maps overwriting those in early maps. When
+// complete, the base map is returned.
+func MergeInPlace[K comparable, V any](base map[K]V, merge ...map[K]V) map[K]V {
+	for _, m := range merge {
 		for k, v := range m {
-			out[k] = v
+			base[k] = v
 		}
 	}
-	return out
+	return base
 }
 
 // Diff returns three maps from two. The first map returned is a map of

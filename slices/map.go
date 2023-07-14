@@ -1,12 +1,39 @@
 package slices
 
-import "github.com/zostay/go-std/generic"
+import (
+	"github.com/zostay/go-std/generic"
+	"github.com/zostay/go-std/maps"
+)
 
 // Map transforms the input into the output value using the mapper function.
 func Map[In, Out any](in []In, mapper func(in In) Out) []Out {
 	out := make([]Out, len(in))
 	for i, t := range in {
 		out[i] = mapper(t)
+	}
+	return out
+}
+
+// MapSlice transforms the input into an output slice using the mapper function.
+// A single input value may map to multiple or zero output values.
+func MapSlice[In, Out any](in []In, mapper func(in In) []Out) []Out {
+	out := make([]Out, 0, len(in))
+	for _, t := range in {
+		out = append(out, mapper(t)...)
+	}
+	return out
+}
+
+// MapMap transforms the input into an output map using the mapper function.
+// This will allocate a master map. The values returned by each call to mapper
+// for each item in the input argument named in will be added to that map. If
+// keys are added later that have already been added to the map being built, the
+// new values will overwrite the old.
+func MapMap[In any, K comparable, V any](in []In, mapper func(in In) map[K]V) map[K]V {
+	out := make(map[K]V, len(in))
+	for _, t := range in {
+		outMap := mapper(t)
+		out = maps.Merge(out, outMap)
 	}
 	return out
 }

@@ -48,6 +48,8 @@ off-by-one errors, so the following ops are provided:
  * `Unshift(slice, value)`
  * `Concat(slice...)`
  * `Map(slice, mapper)`
+ * `MapSlice(slice, mapper)`
+ * `MapMap(slice, mapper)`
  * `Reduce(slice, reducer)`
  * `Reductions(slice, reducer)`
  * `ReduceAcc(slice, start, reducer)`
@@ -87,6 +89,7 @@ There are a lot of common map operations that are missing from the built-in
 standard library:
 
  * `Merge(...maps)`
+ * `MergeInPlace(base, ...maps)`
  * `Diff(a, b)`
 
 ## Generic Sets
