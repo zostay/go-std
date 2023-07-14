@@ -12,6 +12,7 @@ func TestFirstNonZero(t *testing.T) {
 	assert.Equal(t, 1, generic.FirstNonZero[int](0, 1, 2))
 	assert.Equal(t, 1, generic.FirstNonZero[int](1, 0, 2))
 	assert.Equal(t, 1, generic.FirstNonZero[int](0, 0, 1))
+	assert.Equal(t, 0, generic.FirstNonZero[int](0, 0, 0))
 }
 
 func TestFirstNonNil(t *testing.T) {
@@ -24,6 +25,7 @@ func TestFirstNonNil(t *testing.T) {
 	assert.Equal(t, *b, *generic.FirstNonNil(a, b, c))
 	assert.Equal(t, *b, *generic.FirstNonNil(b, a, c))
 	assert.Equal(t, *b, *generic.FirstNonNil(a, a, b))
+	assert.Nil(t, generic.FirstNonNil[int](nil, nil, nil))
 }
 
 func TestZero(t *testing.T) {
