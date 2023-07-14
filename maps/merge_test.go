@@ -27,3 +27,13 @@ func TestMerge(t *testing.T) {
 		"a": 5, "b": 6, "c": 7, "d": 4,
 	}, maps.Merge(a, b, c))
 }
+
+func TestDiff(t *testing.T) {
+	a := map[string]int{"one": 1, "two": 2, "three": 3, "four": 4}
+	b := map[string]int{"one": 5, "three": 6, "five": 7, "seven": 8}
+
+	c, one, two := maps.Diff(a, b)
+	assert.Equal(t, map[string]int{"one": 1, "three": 3}, c)
+	assert.Equal(t, map[string]int{"two": 2, "four": 4}, one)
+	assert.Equal(t, map[string]int{"five": 7, "seven": 8}, two)
+}

@@ -87,6 +87,7 @@ There are a lot of common map operations that are missing from the built-in
 standard library:
 
  * `Merge(...maps)`
+ * `Diff(a, b)`
 
 ## Generic Sets
 

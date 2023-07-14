@@ -2,6 +2,7 @@ WIP  TBD
 
  * Added slices.FirstIndex and slices.GrepIndex.
  * Added set.NewSized and set.Diff.
+ * Added maps.Diff.
  * Fixed missing test coverage on generic.FirstNonNil and generic.FirstNonZero.
 
 v0.2.0  2023-07-08
