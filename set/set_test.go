@@ -175,3 +175,13 @@ func TestUnion(t *testing.T) {
 	assert.Equal(t, set.New(1, 2, 3, 4, 5, 6), set.Union(s1, s2))
 	assert.Equal(t, set.New(1, 2, 3, 4, 5, 6), set.Union(s2, s1))
 }
+
+func TestDiff(t *testing.T) {
+	a := set.New(1, 2, 3, 4)
+	b := set.New(1, 3, 5, 7)
+
+	c, one, two := set.Diff(a, b)
+	assert.Equal(t, set.New(1, 3), c)
+	assert.Equal(t, set.New(2, 4), one)
+	assert.Equal(t, set.New(5, 7), two)
+}

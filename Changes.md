@@ -1,6 +1,7 @@
 WIP  TBD
 
  * Added slices.FirstIndex and slices.GrepIndex.
+ * Added set.NewSized and set.Diff.
 
 v0.2.0  2023-07-08
 

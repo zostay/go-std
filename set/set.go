@@ -1,6 +1,9 @@
 package set
 
-import "github.com/zostay/go-std/maps"
+import (
+	"github.com/zostay/go-std/generic"
+	"github.com/zostay/go-std/maps"
+)
 
 // Set provides a generic set data type. A set is an unsorted list of objects
 // where each object is unique, as defined by the equivalence operation. These
@@ -20,6 +23,11 @@ func New[T comparable](vals ...T) Set[T] {
 		out[v] = exists
 	}
 	return out
+}
+
+// NewSized constructs a new set that is empty, but has the requested capacity.
+func NewSized[T comparable](cap int) Set[T] {
+	return make(Set[T], cap)
 }
 
 // Contains returns true if the given value is contained within the set.
@@ -132,4 +140,30 @@ func CopyInit[T comparable](dst *Set[T], src Set[T]) {
 		*dst = make(Set[T], len(src))
 	}
 	Copy(*dst, src)
+}
+
+// Diff returns three sets from two. The first set returned is items held in
+// common by both sets. The second set is items found in the first set, but not
+// the second set. The third contains items found in the second set, but not the
+// first.
+func Diff[T comparable](a, b Set[T]) (common, inFirst, inSecond Set[T]) {
+	common = NewSized[T](generic.Max(len(a), len(b)))
+	inFirst = NewSized[T](len(a))
+	inSecond = NewSized[T](len(b))
+
+	for akey := range a {
+		if _, found := b[akey]; found {
+			common.Insert(akey)
+		} else {
+			inFirst.Insert(akey)
+		}
+	}
+
+	for bkey := range b {
+		if _, found := a[bkey]; !found {
+			inSecond.Insert(bkey)
+		}
+	}
+
+	return
 }

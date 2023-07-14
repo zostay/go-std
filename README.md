@@ -108,6 +108,7 @@ And then it also provides these functions to work on sets:
  * `Difference(a, b)`
  * `Copy(dst, src)`
  * `CopyInit(dst, src)`
+ * `Diff(a, b)`
 
 ## String Operations
 
