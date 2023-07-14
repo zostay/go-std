@@ -1,4 +1,4 @@
-WIP  TBD
+v0.4.0  2023-07-14
 
  * Added maps.MergeInPlace.
  * Added slices.MapSlice and slices.MapMap.
