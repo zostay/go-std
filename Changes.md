@@ -1,3 +1,7 @@
+WIP  TBD
+
+ * Added slices.FirstIndex and slices.GrepIndex.
+
 v0.2.0  2023-07-08
 
  * Added generic.FirstNonZero and generic.FirstNonNil.

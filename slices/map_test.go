@@ -119,6 +119,12 @@ func TestGrep(t *testing.T) {
 	assert.Equal(t, []int{}, slices.Grep([]int{}, isOdd))
 }
 
+func TestGrepIndex(t *testing.T) {
+	in := []int{1, 2, 3}
+	assert.Equal(t, []int{0, 2}, slices.GrepIndex(in, isOdd))
+	assert.Equal(t, []int{}, slices.GrepIndex([]int{}, isOdd))
+}
+
 func TestAny(t *testing.T) {
 	in := []int{1, 2, 3}
 	assert.Equal(t, true, slices.Any(in, isOdd))
@@ -158,6 +164,16 @@ func TestFirst(t *testing.T) {
 	v, found = slices.First([]int{}, isOdd)
 	assert.Equal(t, 0, v)
 	assert.False(t, found)
+}
+
+func TestFirstIndex(t *testing.T) {
+	in := []int{1, 2, 3}
+	v := slices.FirstIndex(in, isOdd)
+	assert.Equal(t, 0, v)
+	v = slices.FirstIndex(slices.Map(in, double), isOdd)
+	assert.Equal(t, -1, v)
+	v = slices.FirstIndex([]int{}, isOdd)
+	assert.Equal(t, -1, v)
 }
 
 func TestFirstOr(t *testing.T) {

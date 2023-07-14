@@ -86,6 +86,19 @@ func Grep[T any](in []T, pred func(t T) bool) []T {
 	return out
 }
 
+// GrepIndex applies the predicate to each item and returns a list of indexes in
+// the list that point to matching items. If no matching items are found, this
+// returns an empty list.
+func GrepIndex[T any](in []T, pred func(t T) bool) []int {
+	out := make([]int, 0, len(in))
+	for i, t := range in {
+		if pred(t) {
+			out = append(out, i)
+		}
+	}
+	return out
+}
+
 // Any returns true if any item in the input slice matches the predicate.
 // Returns false if the slice is empty.
 func Any[T any](in []T, pred func(t T) bool) bool {
@@ -140,6 +153,17 @@ func First[T any](in []T, pred func(t T) bool) (first T, found bool) {
 		}
 	}
 	return
+}
+
+// FirstIndex returns the index of the first item in the list that matches the
+// index. if the item is not found, -1 is returned.
+func FirstIndex[T any](in []T, pred func(t T) bool) int {
+	for i, t := range in {
+		if pred(t) {
+			return i
+		}
+	}
+	return -1
 }
 
 // FirstOr returns the first tiem that matches the predicate. If nothing

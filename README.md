@@ -55,11 +55,13 @@ off-by-one errors, so the following ops are provided:
  * `Sum(slice)`
  * `Product(slice)`
  * `Grep(slice, predicate)`
+ * `GrepIndex(slice, predicate)`
  * `Any(slice, predicate)`
  * `All(slice, predicate)`
  * `None(slice, predicate)`
  * `NotAll(slice, predicate)`
  * `First(slice, predicate)`
+ * `FirstIndex(slice, predicate)`
  * `FirstOr(slice, missed, predicate)`
  * `Head(slice, n)`
  * `Tail(slice, n)`
