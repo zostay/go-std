@@ -1,4 +1,4 @@
-WIP  TBD
+v0.3.0  2023-07-13
 
  * Added slices.FirstIndex and slices.GrepIndex.
  * Added set.NewSized and set.Diff.
