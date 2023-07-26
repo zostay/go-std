@@ -8,9 +8,9 @@ provided tools:
 
 The built-in `io/fs` package is fine for reading files, but is missing write interfaces. This provides them:
 
+* `FileWriter` (analogous to `fs.File`, but for writes)
 * `CreateFS`
 * `WriteFileFS`
-* `MkdirFS`
 
 And then provides some additional general interfaces:
 
@@ -20,7 +20,7 @@ And then provides some additional general interfaces:
 
 And provides some convenience functions for working with them:
 
-* `Mkdir(fsys, name, perm)`
+* `MkdirAll(fsys, name, perm)`
 * `WriteFile(fsys, name, data, perm)`
 
 ## Generic/Interface Comparison

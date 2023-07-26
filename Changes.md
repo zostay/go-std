@@ -1,7 +1,7 @@
 WIP  TBD
 
- * Adding fs.CreateFS, fs.WriteFileFS, fs.MkdirFS, fs.ReaderFS, fs.ReaderWriterFS, and fs.WriterFS
- * Adding fs.Mkdir and fs.WriteFile
+ * Adding fs.CreateFS, fs.WriteFileFS, fs.ReaderFS, fs.ReaderWriterFS, and fs.WriterFS
+ * Adding fs.MkdirAll and fs.WriteFile
 
 v0.4.0  2023-07-14
 
