@@ -1,3 +1,3 @@
-// Package fs is a drop-in replacement for io/fs, but also provides writeable
-// file system tooling.
+// Package fs provides write file system interfaces and related functions that
+// are not part of the regular Go standard library.
 package fs
