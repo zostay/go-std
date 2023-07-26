@@ -4,6 +4,25 @@ There are a lot of common operations simply missing from the Golang builtin
 library. This makes up for that deficiency. Here's a summary of some of the
 provided tools:
 
+## FileSystem Operations
+
+The built-in `io/fs` package is fine for reading files, but is missing write interfaces. This provides them:
+
+* `CreateFS`
+* `WriteFileFS`
+* `MkdirFS`
+
+And then provides some additional general interfaces:
+
+* `ReaderFS`
+* `ReaderWriterFS`
+* `WriterFS`
+
+And provides some convenience functions for working with them:
+
+* `Mkdir(fsys, name, perm)`
+* `WriteFile(fsys, name, data, perm)`
+
 ## Generic/Interface Comparison
 
 The built-in comparable generic is pretty weak. Just good enough for map key
