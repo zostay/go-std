@@ -102,6 +102,24 @@ func TestDeleteAllValues(t *testing.T) {
 	})
 }
 
+func TestInsert(t *testing.T) {
+	s := []int{1, 2, 3}
+
+	s = slices.Insert(s, 0, 4)
+	s = slices.Insert(s, 2, 5)
+	s = slices.Insert(s, 5, 6)
+
+	assert.Equal(t, []int{4, 1, 5, 2, 3, 6}, s)
+
+	assert.Panics(t, func() {
+		s = slices.Insert(s, -1, 0)
+	})
+
+	assert.Panics(t, func() {
+		s = slices.Insert(s, 8, 7)
+	})
+}
+
 func TestPop(t *testing.T) {
 	s := []int{1, 2, 3}
 

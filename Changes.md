@@ -1,3 +1,7 @@
+WIP  TBD
+
+ * Adding slices.Insert
+
 v0.5.0  2023-07-25
 
  * Adding fs.CreateFS, fs.WriteFileFS, fs.ReaderFS, fs.ReaderWriterFS, and fs.WriterFS

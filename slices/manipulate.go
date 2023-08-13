@@ -1,5 +1,7 @@
 package slices
 
+import "github.com/zostay/go-std/generic"
+
 // Delete will remove the data at index i from the given slice. This works by
 // copying the data after it back and then shortening the slice by one element.
 func Delete[T any](slice []T, i int) []T {
@@ -30,6 +32,18 @@ func DeleteAllValues[T comparable](slice []T, s T) []T {
 			slice = Delete[T](slice, i)
 		}
 	}
+	return slice
+}
+
+// Insert will add the data at index i into the given slice and shift the rest
+// of the data up one index.
+func Insert[T any](slice []T, i int, data T) []T {
+	if i == len(slice) {
+		return append(slice, data)
+	}
+	slice = append(slice, generic.Zero[T]())
+	copy(slice[i+1:], slice[i:])
+	slice[i] = data
 	return slice
 }
 

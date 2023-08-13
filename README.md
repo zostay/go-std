@@ -61,6 +61,9 @@ off-by-one errors, so the following ops are provided:
 
  * `FromRange(a, z, delta)`
  * `Delete(slice, index)`
+ * `DeleteValue(slice, value)`
+ * `DeleteAllValues(slice, value)`
+ * `Insert(slice, index, value)`
  * `Push(slice, value)`
  * `Pop(slice)`
  * `Shift(slice)`
