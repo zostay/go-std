@@ -1,4 +1,4 @@
-WIP  TBD
+v0.6.0  2023-08-12
 
  * Adding slices.Insert
 
