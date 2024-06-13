@@ -13,7 +13,7 @@ jobs:
           go-version: 1.19
       - uses: golangci/golangci-lint-action@v6
         with:
-          version: 1.59
+          version: 1.59.0
       - run: go test ./...
         name: Run All Tests
       - run: go test ./... -coverprofile=coverage.out
