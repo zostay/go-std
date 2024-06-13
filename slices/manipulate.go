@@ -75,10 +75,8 @@ func Unshift[T any](slice []T, vs ...T) []T {
 	for range vs {
 		slice = append(slice, zero)
 	}
-	copy(slice[len(vs):], slice[:])
-	for i, v := range vs {
-		slice[i] = v
-	}
+	copy(slice[len(vs):], slice)
+	copy(slice, vs)
 	return slice
 }
 
