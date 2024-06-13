@@ -18,7 +18,7 @@ import "errors"
 //			return
 //		}
 //
-// Now, both errors can be captured without a lot gymnastics.
+// Now, both errors can be captured without a lot of gymnastics.
 func Error(err *error, deferErr error) {
 	if deferErr == nil {
 		return

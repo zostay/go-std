@@ -1,5 +1,6 @@
 ## WIP  TBD
 
+ * :boom: Breaking Change :boom:: Now requires Go 1.20.
  * Adding deferred.Error for helping with deferred error handling.
 
 ## v0.6.0  2023-08-12
