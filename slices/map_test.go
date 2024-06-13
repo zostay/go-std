@@ -38,6 +38,8 @@ func oddly(a int) int {
 }
 
 func TestMap(t *testing.T) {
+	t.Parallel()
+
 	in := []int{1, 2, 3}
 	ss := slices.Map(in, toString)
 	assert.Equal(t, []string{"1", "2", "3"}, ss)
@@ -46,6 +48,8 @@ func TestMap(t *testing.T) {
 }
 
 func TestMapSlice(t *testing.T) {
+	t.Parallel()
+
 	halveTheOdds := func(i int) []float64 {
 		if i%2 == 1 {
 			return []float64{float64(i) / 2.0}
@@ -62,6 +66,8 @@ func TestMapSlice(t *testing.T) {
 }
 
 func TestMapMap(t *testing.T) {
+	t.Parallel()
+
 	stringToInt := func(in int) map[string]int {
 		return map[string]int{
 			strconv.Itoa(in): in,
@@ -75,6 +81,8 @@ func TestMapMap(t *testing.T) {
 }
 
 func TestReduce(t *testing.T) {
+	t.Parallel()
+
 	in := []int{1, 2, 3}
 	s := slices.Reduce(in, subtract)
 	assert.Equal(t, -6, s)
@@ -88,6 +96,8 @@ func TestReduce(t *testing.T) {
 }
 
 func TestReduceAcc(t *testing.T) {
+	t.Parallel()
+
 	in := []int{1, 2, 3}
 	s := slices.ReduceAcc(in, 7, subtract)
 	assert.Equal(t, 1, s)
@@ -101,6 +111,8 @@ func TestReduceAcc(t *testing.T) {
 }
 
 func TestReductions(t *testing.T) {
+	t.Parallel()
+
 	in := []int{1, 2, 3}
 	s := slices.Reductions(in, subtract)
 	assert.Equal(t, []int{-1, -3, -6}, s)
@@ -114,6 +126,8 @@ func TestReductions(t *testing.T) {
 }
 
 func TestReductionsAcc(t *testing.T) {
+	t.Parallel()
+
 	in := []int{1, 2, 3}
 	s := slices.ReductionsAcc(in, 7, subtract)
 	assert.Equal(t, []int{6, 4, 1}, s)
@@ -127,6 +141,8 @@ func TestReductionsAcc(t *testing.T) {
 }
 
 func TestSum(t *testing.T) {
+	t.Parallel()
+
 	in := []int{1, 2, 3}
 	s := slices.Sum(in)
 	assert.Equal(t, 6, s)
@@ -135,6 +151,8 @@ func TestSum(t *testing.T) {
 }
 
 func TestProduct(t *testing.T) {
+	t.Parallel()
+
 	in := []int{3, 4, 5}
 	p := slices.Product(in)
 	assert.Equal(t, 60, p)
@@ -143,18 +161,24 @@ func TestProduct(t *testing.T) {
 }
 
 func TestGrep(t *testing.T) {
+	t.Parallel()
+
 	in := []int{1, 2, 3}
 	assert.Equal(t, []int{1, 3}, slices.Grep(in, isOdd))
 	assert.Equal(t, []int{}, slices.Grep([]int{}, isOdd))
 }
 
 func TestGrepIndex(t *testing.T) {
+	t.Parallel()
+
 	in := []int{1, 2, 3}
 	assert.Equal(t, []int{0, 2}, slices.GrepIndex(in, isOdd))
 	assert.Equal(t, []int{}, slices.GrepIndex([]int{}, isOdd))
 }
 
 func TestAny(t *testing.T) {
+	t.Parallel()
+
 	in := []int{1, 2, 3}
 	assert.Equal(t, true, slices.Any(in, isOdd))
 	assert.Equal(t, false, slices.Any(slices.Map(in, double), isOdd))
@@ -162,6 +186,8 @@ func TestAny(t *testing.T) {
 }
 
 func TestAll(t *testing.T) {
+	t.Parallel()
+
 	in := []int{1, 2, 3}
 	assert.Equal(t, false, slices.All(in, isOdd))
 	assert.Equal(t, true, slices.All(slices.Map(in, oddly), isOdd))
@@ -169,6 +195,8 @@ func TestAll(t *testing.T) {
 }
 
 func TestNone(t *testing.T) {
+	t.Parallel()
+
 	in := []int{1, 2, 3}
 	assert.Equal(t, false, slices.None(in, isOdd))
 	assert.Equal(t, true, slices.None(slices.Map(in, double), isOdd))
@@ -176,6 +204,8 @@ func TestNone(t *testing.T) {
 }
 
 func TestNotAll(t *testing.T) {
+	t.Parallel()
+
 	in := []int{1, 2, 3}
 	assert.Equal(t, true, slices.NotAll(in, isOdd))
 	assert.Equal(t, false, slices.NotAll(slices.Map(in, oddly), isOdd))
@@ -183,6 +213,8 @@ func TestNotAll(t *testing.T) {
 }
 
 func TestFirst(t *testing.T) {
+	t.Parallel()
+
 	in := []int{1, 2, 3}
 	v, found := slices.First(in, isOdd)
 	assert.Equal(t, 1, v)
@@ -196,6 +228,8 @@ func TestFirst(t *testing.T) {
 }
 
 func TestFirstIndex(t *testing.T) {
+	t.Parallel()
+
 	in := []int{1, 2, 3}
 	v := slices.FirstIndex(in, isOdd)
 	assert.Equal(t, 0, v)
@@ -206,6 +240,8 @@ func TestFirstIndex(t *testing.T) {
 }
 
 func TestFirstOr(t *testing.T) {
+	t.Parallel()
+
 	in := []int{1, 2, 3}
 	v := slices.FirstOr(in, -1, isOdd)
 	assert.Equal(t, 1, v)

@@ -11,6 +11,8 @@ import (
 )
 
 func TestShuffle(t *testing.T) {
+	t.Parallel()
+
 	in := []int{1, 2, 3, 4, 5}
 
 	slices.Shuffle(in)
@@ -23,6 +25,8 @@ func TestShuffle(t *testing.T) {
 }
 
 func TestSample(t *testing.T) {
+	t.Parallel()
+
 	ins := [][]int{
 		{},
 		{1, 2},
@@ -49,6 +53,8 @@ func TestSample(t *testing.T) {
 }
 
 func TestUniq(t *testing.T) {
+	t.Parallel()
+
 	in := []int{1, 1, 1, 2, 2, 3, 4, 4, 5, 6, 7, 7, 7}
 	out := slices.Uniq(in)
 	assert.Equal(t, []int{1, 2, 3, 4, 5, 6, 7}, out)
@@ -56,6 +62,8 @@ func TestUniq(t *testing.T) {
 }
 
 func TestUniqInPlace(t *testing.T) {
+	t.Parallel()
+
 	in := []int{1, 1, 1, 2, 2, 3, 4, 4, 5, 6, 7, 7, 7}
 	in = slices.UniqInPlace(in)
 	assert.Equal(t, []int{1, 2, 3, 4, 5, 6, 7}, in)

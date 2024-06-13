@@ -9,6 +9,8 @@ import (
 )
 
 func TestApplyDefaults(t *testing.T) {
+	t.Parallel()
+
 	type test struct {
 		A string
 		B int
@@ -16,8 +18,8 @@ func TestApplyDefaults(t *testing.T) {
 	}
 
 	var (
-		f   = float64(13.0)
-		g   = float64(14.0)
+		f   = 13.0
+		g   = 14.0
 		one = test{
 			A: "foo",
 			B: 42,

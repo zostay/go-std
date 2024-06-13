@@ -11,6 +11,8 @@ import (
 )
 
 func TestMkdirAllExists(t *testing.T) {
+	t.Parallel()
+
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()
 
@@ -29,6 +31,8 @@ func TestMkdirAllExists(t *testing.T) {
 }
 
 func TestMkdirAllMkdirFails(t *testing.T) {
+	t.Parallel()
+
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()
 
@@ -45,6 +49,8 @@ func TestMkdirAllMkdirFails(t *testing.T) {
 }
 
 func TestMkdirAllStatFails(t *testing.T) {
+	t.Parallel()
+
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()
 
@@ -60,6 +66,8 @@ func TestMkdirAllStatFails(t *testing.T) {
 }
 
 func TestMkdirAllParentIsFile(t *testing.T) {
+	t.Parallel()
+
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()
 
@@ -80,6 +88,8 @@ func TestMkdirAllParentIsFile(t *testing.T) {
 }
 
 func TestMkdirAllPartialExists(t *testing.T) {
+	t.Parallel()
+
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()
 
@@ -102,6 +112,8 @@ func TestMkdirAllPartialExists(t *testing.T) {
 }
 
 func TestMkdirAll(t *testing.T) {
+	t.Parallel()
+
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()
 
@@ -120,6 +132,8 @@ func TestMkdirAll(t *testing.T) {
 }
 
 func TestWriteFileFS(t *testing.T) {
+	t.Parallel()
+
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()
 
@@ -133,6 +147,8 @@ func TestWriteFileFS(t *testing.T) {
 }
 
 func TestWriteFile(t *testing.T) {
+	t.Parallel()
+
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()
 
@@ -150,6 +166,8 @@ func TestWriteFile(t *testing.T) {
 }
 
 func TestWriteFileCreateFails(t *testing.T) {
+	t.Parallel()
+
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()
 
@@ -163,6 +181,8 @@ func TestWriteFileCreateFails(t *testing.T) {
 }
 
 func TestWriteFileWriteFails(t *testing.T) {
+	t.Parallel()
+
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()
 
@@ -179,6 +199,8 @@ func TestWriteFileWriteFails(t *testing.T) {
 }
 
 func TestWriteFileChmodFails(t *testing.T) {
+	t.Parallel()
+
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()
 

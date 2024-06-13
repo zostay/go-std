@@ -9,6 +9,8 @@ import (
 )
 
 func TestKeys(t *testing.T) {
+	t.Parallel()
+
 	a := map[string]int{
 		"a": 1,
 		"b": 2,
@@ -23,6 +25,8 @@ func TestKeys(t *testing.T) {
 }
 
 func TestValues(t *testing.T) {
+	t.Parallel()
+
 	a := map[string]int{
 		"a": 1,
 		"b": 2,
@@ -37,6 +41,8 @@ func TestValues(t *testing.T) {
 }
 
 func TestKVs(t *testing.T) {
+	t.Parallel()
+
 	a := map[string]int{
 		"a": 1,
 		"b": 2,

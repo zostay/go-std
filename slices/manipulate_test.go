@@ -9,6 +9,8 @@ import (
 )
 
 func TestDelete(t *testing.T) {
+	t.Parallel()
+
 	var slice = []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 
 	slice = slices.Delete(slice, 10)
@@ -47,6 +49,8 @@ func TestDelete(t *testing.T) {
 }
 
 func TestDeleteValue(t *testing.T) {
+	t.Parallel()
+
 	s := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 6}
 
 	s = slices.DeleteValue(s, 0)
@@ -75,6 +79,8 @@ func TestDeleteValue(t *testing.T) {
 }
 
 func TestDeleteAllValues(t *testing.T) {
+	t.Parallel()
+
 	s := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 6}
 
 	s = slices.DeleteAllValues(s, 0)
@@ -103,6 +109,8 @@ func TestDeleteAllValues(t *testing.T) {
 }
 
 func TestInsert(t *testing.T) {
+	t.Parallel()
+
 	s := []int{1, 2, 3}
 
 	s = slices.Insert(s, 0, 4)
@@ -121,6 +129,8 @@ func TestInsert(t *testing.T) {
 }
 
 func TestPop(t *testing.T) {
+	t.Parallel()
+
 	s := []int{1, 2, 3}
 
 	v, s := slices.Pop(s)
@@ -141,7 +151,9 @@ func TestPop(t *testing.T) {
 }
 
 func TestPush(t *testing.T) {
-	s := []int{}
+	t.Parallel()
+
+	var s []int
 
 	s = slices.Push(s, 1)
 	s = slices.Push(s, 2, 3)
@@ -150,6 +162,8 @@ func TestPush(t *testing.T) {
 }
 
 func TestShift(t *testing.T) {
+	t.Parallel()
+
 	s := []int{1, 2, 3}
 
 	v, s := slices.Shift(s)
@@ -170,7 +184,9 @@ func TestShift(t *testing.T) {
 }
 
 func TestUnshift(t *testing.T) {
-	s := []int{}
+	t.Parallel()
+
+	var s []int
 
 	s = slices.Unshift(s, 1)
 	s = slices.Unshift(s, 2, 3)
@@ -179,9 +195,11 @@ func TestUnshift(t *testing.T) {
 }
 
 func TestConcat(t *testing.T) {
+	t.Parallel()
+
 	a := []int{1, 2, 3}
 	b := []int{4, 5}
-	c := []int{}
+	var c []int
 	d := []int{6, 7, 8}
 
 	e := slices.Concat(a, b, c, d)

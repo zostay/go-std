@@ -9,6 +9,8 @@ import (
 )
 
 func TestMerge(t *testing.T) {
+	t.Parallel()
+
 	a := map[string]int{"a": 1, "b": 2}
 	b := map[string]int{"c": 3, "d": 4}
 	c := map[string]int{"a": 5, "b": 6, "c": 7}
@@ -29,6 +31,8 @@ func TestMerge(t *testing.T) {
 }
 
 func TestMergeInPlace(t *testing.T) {
+	t.Parallel()
+
 	a := map[string]int{"a": 1, "b": 2}
 	b := map[string]int{"c": 3, "d": 4}
 	c := map[string]int{"a": 5, "b": 6, "c": 7}
@@ -46,6 +50,8 @@ func TestMergeInPlace(t *testing.T) {
 }
 
 func TestDiff(t *testing.T) {
+	t.Parallel()
+
 	a := map[string]int{"one": 1, "two": 2, "three": 3, "four": 4}
 	b := map[string]int{"one": 5, "three": 6, "five": 7, "seven": 8}
 

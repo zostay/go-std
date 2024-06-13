@@ -9,6 +9,8 @@ import (
 )
 
 func TestCopy(t *testing.T) {
+	t.Parallel()
+
 	s1 := set.New(1, 2, 3)
 	s2 := set.New[int]()
 	set.Copy(s2, s1)
@@ -17,6 +19,8 @@ func TestCopy(t *testing.T) {
 }
 
 func TestCopyInit(t *testing.T) {
+	t.Parallel()
+
 	s1 := set.New(1, 2, 3)
 	var s2 set.Set[int]
 	set.CopyInit(&s2, s1)
@@ -25,6 +29,8 @@ func TestCopyInit(t *testing.T) {
 }
 
 func TestNew(t *testing.T) {
+	t.Parallel()
+
 	ss := []set.Set[int]{
 		set.New(1, 2, 3),
 		set.New(3, 2, 1),
@@ -42,6 +48,8 @@ func TestNew(t *testing.T) {
 }
 
 func TestSet_Contains(t *testing.T) {
+	t.Parallel()
+
 	s := set.New(1, 2, 3)
 
 	assert.True(t, s.Contains(1))
@@ -51,6 +59,8 @@ func TestSet_Contains(t *testing.T) {
 }
 
 func TestSet_Delete(t *testing.T) {
+	t.Parallel()
+
 	s := set.New(1, 2, 3)
 
 	s.Delete(0)
@@ -70,6 +80,8 @@ func TestSet_Delete(t *testing.T) {
 }
 
 func TestSet_Insert(t *testing.T) {
+	t.Parallel()
+
 	s := set.New[int]()
 
 	assert.Equal(t, set.New[int](), s)
@@ -88,11 +100,15 @@ func TestSet_Insert(t *testing.T) {
 }
 
 func TestSet_Len(t *testing.T) {
+	t.Parallel()
+
 	s := set.New(1, 2, 3)
 	assert.Equal(t, len(s), s.Len())
 }
 
 func TestSet_SubsetOf(t *testing.T) {
+	t.Parallel()
+
 	s1 := set.New(1, 2, 3)
 	s2 := set.New(2, 3)
 	s3 := set.New(3, 4)
@@ -109,6 +125,8 @@ func TestSet_SubsetOf(t *testing.T) {
 }
 
 func TestSet_Keys(t *testing.T) {
+	t.Parallel()
+
 	s1 := set.New(1, 2, 3)
 	s2 := set.New(2, 3)
 	s3 := set.New(3, 4)
@@ -135,6 +153,8 @@ func TestSet_Keys(t *testing.T) {
 }
 
 func TestDifference(t *testing.T) {
+	t.Parallel()
+
 	s1 := set.New(1, 2, 3)
 	s2 := set.New(3, 4, 5)
 
@@ -144,6 +164,8 @@ func TestDifference(t *testing.T) {
 }
 
 func TestIntersection(t *testing.T) {
+	t.Parallel()
+
 	s1 := set.New(1, 2, 3)
 	s2 := set.New(3, 4, 5, 6)
 
@@ -153,6 +175,8 @@ func TestIntersection(t *testing.T) {
 }
 
 func TestIntersects(t *testing.T) {
+	t.Parallel()
+
 	s1 := set.New(1, 2, 3)
 	s2 := set.New(3, 4, 5)
 	s3 := set.New(5, 6, 7)
@@ -169,6 +193,8 @@ func TestIntersects(t *testing.T) {
 }
 
 func TestUnion(t *testing.T) {
+	t.Parallel()
+
 	s1 := set.New(1, 2, 3)
 	s2 := set.New(3, 4, 5, 6)
 
@@ -177,6 +203,8 @@ func TestUnion(t *testing.T) {
 }
 
 func TestDiff(t *testing.T) {
+	t.Parallel()
+
 	a := set.New(1, 2, 3, 4)
 	b := set.New(1, 3, 5, 7)
 
