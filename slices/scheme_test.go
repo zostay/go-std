@@ -9,6 +9,8 @@ import (
 )
 
 func TestHead(t *testing.T) {
+	t.Parallel()
+
 	assert.Equal(t, []int{1, 2, 3}, slices.Head([]int{1, 2, 3, 4, 5}, 3))
 	assert.Equal(t, []int{1, 2, 3}, slices.Head([]int{1, 2, 3}, 3))
 	assert.Equal(t, []int{1, 2}, slices.Head([]int{1, 2}, 3))
@@ -18,6 +20,8 @@ func TestHead(t *testing.T) {
 }
 
 func TestTail(t *testing.T) {
+	t.Parallel()
+
 	assert.Equal(t, []int{3, 4, 5}, slices.Tail([]int{1, 2, 3, 4, 5}, 3))
 	assert.Equal(t, []int{1, 2, 3}, slices.Tail([]int{1, 2, 3}, 3))
 	assert.Equal(t, []int{1, 2}, slices.Tail([]int{1, 2}, 3))

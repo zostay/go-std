@@ -9,6 +9,8 @@ import (
 )
 
 func TestCompare(t *testing.T) {
+	t.Parallel()
+
 	a := 42
 	b := 13
 
@@ -19,6 +21,8 @@ func TestCompare(t *testing.T) {
 }
 
 func TestLess(t *testing.T) {
+	t.Parallel()
+
 	a := 42
 	b := 13
 
@@ -27,6 +31,8 @@ func TestLess(t *testing.T) {
 }
 
 func TestMax(t *testing.T) {
+	t.Parallel()
+
 	a := 42
 	b := 13
 
@@ -35,6 +41,8 @@ func TestMax(t *testing.T) {
 }
 
 func TestMin(t *testing.T) {
+	t.Parallel()
+
 	a := 42
 	b := 13
 
@@ -49,6 +57,8 @@ func (a compare) Compare(b generic.ComparableInterface) generic.Comparison {
 }
 
 func TestLessI(t *testing.T) {
+	t.Parallel()
+
 	a := compare(42)
 	b := compare(13)
 
@@ -57,6 +67,8 @@ func TestLessI(t *testing.T) {
 }
 
 func TestMaxI(t *testing.T) {
+	t.Parallel()
+
 	a := compare(42)
 	b := compare(13)
 
@@ -65,6 +77,8 @@ func TestMaxI(t *testing.T) {
 }
 
 func TestMinI(t *testing.T) {
+	t.Parallel()
+
 	a := compare(42)
 	b := compare(13)
 

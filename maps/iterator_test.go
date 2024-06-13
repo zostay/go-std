@@ -9,6 +9,8 @@ import (
 )
 
 func TestNewIterator(t *testing.T) {
+	t.Parallel()
+
 	a := map[string]int{
 		"a": 1,
 		"b": 2,

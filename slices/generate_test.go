@@ -9,6 +9,8 @@ import (
 )
 
 func TestFromRange(t *testing.T) {
+	t.Parallel()
+
 	gotI := slices.FromRange(1, 10, 1)
 	assert.Equal(t, []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, gotI)
 

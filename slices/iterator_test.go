@@ -9,6 +9,8 @@ import (
 )
 
 func TestNewIterator(t *testing.T) {
+	t.Parallel()
+
 	a := []int{1, 2, 3}
 
 	iter := slices.NewIterator(a)

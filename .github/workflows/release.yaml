@@ -1,0 +1,44 @@
+name: Release
+on:
+  push:
+    tags:
+      - v*
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    permissions: write-all
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: 1.19
+      - name: Release Verseion
+        run: echo $RELEASE_VERSION=$(echo $GITHUB_REF_NAME | grep -Eo '[0-9]+\.[0-9]+\.[0-9]+.*$') >> $GITHUB_ENV
+      - name: Version Check
+        run: |
+          if ! grep -q "$RELEASE_VERSION" version.txt; then
+            echo "version.txt does not match $RELEASE_VERSION!"
+            exit 1
+          fi
+      - name: Changes Heading Up-To-Date Check
+        run: |
+          date=$(date "+%Y-%m-%d")
+          header=$(head -n1 Changes.md)
+          if [ "$header" != "## $RELEASE_VERSION  $date" ]; then
+              echo "Changes.md is out of date!"
+              echo "Expected header: ## $RELEASE_VERSION  $date"
+              echo "Found header:    $header"
+              exit 1
+          else
+              echo "Changes.md heading looks good."
+          fi
+      - name: Release Notes Capture
+        run: |
+          sed -n '/^## [0-9]/{:loop n; /^## [0-9]/q; p; b loop}' Changes.md > release-notes.md
+          echo "Release Notes Will be..."
+          echo "========================"
+          cat release-notes.md

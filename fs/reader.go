@@ -2,7 +2,7 @@ package fs
 
 import "io/fs"
 
-// ReaderFS combines all teh reader file system interfaces into a single
+// ReaderFS combines all the reader file system interfaces into a single
 // interface for convenience.
 type ReaderFS interface {
 	fs.GlobFS

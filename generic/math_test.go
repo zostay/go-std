@@ -9,6 +9,8 @@ import (
 )
 
 func TestCountDeltas(t *testing.T) {
+	t.Parallel()
+
 	d := generic.CountDeltas(1.0, 10.0, 1.0)
 	assert.Equal(t, 9, d)
 

@@ -193,7 +193,7 @@ func FirstIndex[T any](in []T, pred func(t T) bool) int {
 	return -1
 }
 
-// FirstOr returns the first tiem that matches the predicate. If nothing
+// FirstOr returns the first time that matches the predicate. If nothing
 // matches, the missed value is returned.
 func FirstOr[T any](in []T, missed T, pred func(t T) bool) T {
 	for _, t := range in {

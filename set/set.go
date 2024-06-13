@@ -26,8 +26,8 @@ func New[T comparable](vals ...T) Set[T] {
 }
 
 // NewSized constructs a new set that is empty, but has the requested capacity.
-func NewSized[T comparable](cap int) Set[T] {
-	return make(Set[T], cap)
+func NewSized[T comparable](capacity int) Set[T] {
+	return make(Set[T], capacity)
 }
 
 // Contains returns true if the given value is contained within the set.

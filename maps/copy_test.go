@@ -9,6 +9,8 @@ import (
 )
 
 func TestCopyInit(t *testing.T) {
+	t.Parallel()
+
 	a := map[string]int{
 		"a": 1,
 		"b": 2,
@@ -22,6 +24,8 @@ func TestCopyInit(t *testing.T) {
 }
 
 func TestCopy(t *testing.T) {
+	t.Parallel()
+
 	a := map[string]int{
 		"a": 1,
 		"b": 2,
@@ -35,6 +39,8 @@ func TestCopy(t *testing.T) {
 }
 
 func TestCopy_SadNilDstPanics(t *testing.T) {
+	t.Parallel()
+
 	a := map[string]int{
 		"a": 1,
 		"b": 2,
@@ -48,6 +54,8 @@ func TestCopy_SadNilDstPanics(t *testing.T) {
 }
 
 func TestClear(t *testing.T) {
+	t.Parallel()
+
 	a := map[string]int{
 		"a": 1,
 		"b": 2,

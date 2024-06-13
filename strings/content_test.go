@@ -9,6 +9,8 @@ import (
 )
 
 func TestContainsOnly(t *testing.T) {
+	t.Parallel()
+
 	assert.True(t, strings.ContainsOnly("abc", "abc"))
 	assert.True(t, strings.ContainsOnly("a", "abc"))
 	assert.True(t, strings.ContainsOnly("aaaaaabbbbbbccccc", "cba"))
@@ -16,6 +18,8 @@ func TestContainsOnly(t *testing.T) {
 }
 
 func TestFromRange(t *testing.T) {
+	t.Parallel()
+
 	assert.Equal(t, "abcd", strings.FromRange('a', 'd'))
 	assert.Equal(t, "ABCDEFGHIJKLMNOPQRSTUVWXYZ", strings.FromRange('A', 'Z'))
 	assert.Equal(t, "0123456789", strings.FromRange('0', '9'))
@@ -23,10 +27,14 @@ func TestFromRange(t *testing.T) {
 }
 
 func TestReverse(t *testing.T) {
+	t.Parallel()
+
 	assert.Equal(t, ".txet gnisreveR", strings.Reverse("Reversing text."))
 }
 
 func TestIncrement(t *testing.T) {
+	t.Parallel()
+
 	assert.Equal(t, "A", strings.Increment(""))
 	assert.Equal(t, "B", strings.Increment("A"))
 	assert.Equal(t, "AA", strings.Increment("Z"))
