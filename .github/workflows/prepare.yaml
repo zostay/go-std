@@ -1,33 +1,35 @@
-name: Release
+name: Prepare Release
 on:
   push:
     branches:
       - release/*
 
 jobs:
-  release:
-    name: Release
+  prepare:
+    name: Prepare Release
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
         with:
-          go-version: 1.20
+            go-version: '1.20'
       - name: Release Verseion
-        run: echo $RELEASE_VERSION=$(echo $GITHUB_REF_NAME | grep -Eo '[0-9]+\.[0-9]+\.[0-9]+.*$') >> $GITHUB_ENV
+        run: echo RELEASE_VERSION=$(echo $GITHUB_REF_NAME | grep -Eo '[0-9]+\.[0-9]+\.[0-9]+.*$') >> $GITHUB_ENV
       - name: Version Check
         run: |
           if ! grep -q "$RELEASE_VERSION" version.txt; then
             echo "version.txt does not match $RELEASE_VERSION!"
             exit 1
           fi
+      - name: Set Time Zone to US Central
+        run: sudo timedatectl set-timezone America/Chicago
       - name: Changes Heading Up-To-Date Check
         run: |
           date=$(date "+%Y-%m-%d")
           header=$(head -n1 Changes.md)
-          if [ "$header" != "## $RELEASE_VERSION  $date" ]; then
+          if [ "$header" != "## v$RELEASE_VERSION  $date" ]; then
               echo "Changes.md is out of date!"
-              echo "Expected header: ## $RELEASE_VERSION  $date"
+              echo "Expected header: ## v$RELEASE_VERSION  $date"
               echo "Found header:    $header"
               exit 1
           else
