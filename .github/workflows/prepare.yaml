@@ -6,7 +6,7 @@ on:
 
 jobs:
   release:
-    name: Release
+    name: Prepare Release
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
