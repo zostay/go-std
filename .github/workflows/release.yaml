@@ -17,7 +17,7 @@ jobs:
         with:
           go-version: '1.20'
       - name: Release Verseion
-        run: echo $RELEASE_VERSION=$(echo $GITHUB_REF_NAME | grep -Eo '[0-9]+\.[0-9]+\.[0-9]+.*$') >> $GITHUB_ENV
+        run: echo RELEASE_VERSION=$(echo $GITHUB_REF_NAME | grep -Eo '[0-9]+\.[0-9]+\.[0-9]+.*$') >> $GITHUB_ENV
       - name: Version Check
         run: |
           if ! grep -q "$RELEASE_VERSION" version.txt; then
