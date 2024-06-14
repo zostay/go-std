@@ -14,16 +14,15 @@ jobs:
           cache: false
       - uses: golangci/golangci-lint-action@v6
         with:
-          version: v1.59.0
-      - run: go test ./...
-        name: Run All Tests
-      - run: go test ./... -coverprofile=coverage.out
-        name: Run Tests with Coverage
+          version: v1.59
+      - run: go test -v ./...
+      - run: |
+          coveredFiles=$(go list ./... | grep -v 'github.com/zostay/today/\(cmd\|tools/gen/verses\)')
+          go test $coveredFiles -coverprofile=coverage.out
       - run: go tool cover -func=coverage.out
-        name: Display Coverage
       - name: Coverage Quality Check
         env:
-          REQUIRED_COVERAGE: 90
+          REQUIRED_COVERAGE: 95
         run: |
           totalCoverage=$(go tool cover -func=coverage.out | grep total | grep -Eo '[0-9]+\.[0-9]+')
           echo "Total Coverage: $totalCoverage %"
