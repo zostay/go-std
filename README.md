@@ -4,6 +4,13 @@ There are a lot of common operations simply missing from the Golang builtin
 library. This makes up for that deficiency. Here's a summary of some of the
 provided tools:
 
+## Deferred Handling
+
+Handling deferred functions is a bit of a pain. This provides a way to handle
+certain deferred calls with a little less hassle:
+
+* `Error` (allows capturing both errors that may occur during defer)
+
 ## FileSystem Operations
 
 The built-in `io/fs` package is fine for reading files, but is missing write interfaces. This provides them:
