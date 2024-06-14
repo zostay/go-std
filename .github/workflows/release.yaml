@@ -44,3 +44,5 @@ jobs:
           echo "Release Notes Will be..."
           echo "========================"
           cat release-notes.md
+      - name: Create Release
+        run: gh release create -t "v$RELEASE_VERSION" "v$RELEASE_VERSION" --draft --notes-file=release-notes.md
