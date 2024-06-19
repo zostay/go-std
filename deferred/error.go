@@ -12,7 +12,7 @@ import "errors"
 //			if err != nil {
 //				return
 //			}
-//			defer deferred.Error(&err, r.Close())
+//			defer func() { deferred.Error(&err, r.Close()) }()
 //
 //			// process file
 //			return

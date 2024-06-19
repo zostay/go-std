@@ -1,3 +1,7 @@
+## WIP  TBD
+
+ * Corrected documentation for deferred.Error which gave incorrect guidance on how to use it.
+
 ## v0.7.0  2024-06-13
 
  * :boom: Breaking Change :boom:: Now requires Go 1.20.
