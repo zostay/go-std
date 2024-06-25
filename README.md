@@ -6,8 +6,7 @@ provided tools:
 
 ## Byte Slice Operations
 
-There are a lot of common byte slice operations that are missing from the
-built-in standard library:
+Here's a few additional operations for working with slices of bytes:
 
 * `ContainsOnly(b, chars)`
 * `FromRange(a, z)`
