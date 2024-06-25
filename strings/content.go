@@ -282,3 +282,14 @@ var defaultIncs = []IncrementSet{
 func Increment(input string) string {
 	return IncrementWithSets(input, defaultIncs...)
 }
+
+// Indent returns the string with each line indented by the given string.
+func Indent(s, indent string) string {
+	startIndent := indent
+	if s[0] == '\n' {
+		startIndent = ""
+	}
+	return strings.TrimRight(
+		startIndent+strings.ReplaceAll(s, "\n", "\n"+indent),
+		" ")
+}
