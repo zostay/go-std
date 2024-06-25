@@ -1,4 +1,4 @@
-## WIP  TBD
+## v0.8.0  2024-06-25
 
  * Adding `bytes.ContainsOnly`, `bytes.FromRange`, `bytes.Reverse`, `bytes.Indent`.
  * Adding `strings.Indent`.
