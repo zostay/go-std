@@ -4,6 +4,16 @@ There are a lot of common operations simply missing from the Golang builtin
 library. This makes up for that deficiency. Here's a summary of some of the
 provided tools:
 
+## Byte Slice Operations
+
+There are a lot of common byte slice operations that are missing from the
+built-in standard library:
+
+* `ContainsOnly(b, chars)`
+* `FromRange(a, z)`
+* `Reverse(b)`
+* `Indent(b, indent)`
+
 ## Deferred Handling
 
 Handling deferred functions is a bit of a pain. This provides a way to handle
@@ -153,5 +163,6 @@ built-in `strings` package:
  * `Reverse(s)`
  * `Increment(s)`
  * `IncrementWithSets(s, sets)`
+ * `Indent(s, indent)`
 
 The latter two operations might warrant their own library, but I put them here for now.

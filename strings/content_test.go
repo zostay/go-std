@@ -89,3 +89,10 @@ func TestIncrement(t *testing.T) {
 	assert.Equal(t, "ID:AAA000", strings.IncrementWithSets("ID:ZZ999", licPlate...))
 	assert.Equal(t, "ID:AAAA000", strings.IncrementWithSets("ID:ZZZ999", licPlate...))
 }
+
+func TestIndent(t *testing.T) {
+	t.Parallel()
+
+	assert.Equal(t, "\n    a\n    b\n    c\n", strings.Indent("\na\nb\nc\n", "    "))
+	assert.Equal(t, "    a\n    b\n    c", strings.Indent("a\nb\nc", "    "))
+}
