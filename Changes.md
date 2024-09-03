@@ -1,3 +1,9 @@
+## WIP  TBD
+
+ * Adding `maps.Flip`, `maps.FlipSlice`, and `sets.FlipMap`.
+ * Adding `sets.All`, `sets.Any`, and `sets.None`.
+ * The signature of `sets.Delete` and `sets.Insert` has changed to use variadic args to allow multiple deletes and inserts in a single call, respectively.
+
 ## v0.8.0  2024-06-25
 
  * Adding `bytes.ContainsOnly`, `bytes.FromRange`, `bytes.Reverse`, `bytes.Indent`.

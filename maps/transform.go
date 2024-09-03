@@ -30,3 +30,39 @@ func KVs[K comparable, V any](in map[K]V) []any {
 	}
 	return out
 }
+
+// Flip will return a new map with the keys and values of the input map flipped.
+// That is, the keys of the input map will be the values of the output map and
+// the values of the input map will be the keys of the output map.
+//
+// This will only work if the value type is comparable and if values are
+// repeated, it is indeterminate which key will be kept.
+func Flip[K comparable, V comparable](in map[K]V) map[V]K {
+	out := make(map[V]K, len(in))
+	for k, v := range in {
+		out[v] = k
+	}
+	return out
+}
+
+// FlipSlice will return a new map with the keys and values of the input map
+// flipped. That is, the keys of the input map will be the values of the output
+// map and the values of the input map will be the keys of the output map.
+// However, the resulting value is a slice of keys.
+//
+// This will only work if the value type is comparable. If values repeat, the
+// keys will be collected into the value slice. The ordering is indeterminate.
+//
+// You may also be interested in set.FlipMap.
+func FlipSlice[K comparable, V comparable](in map[K]V) map[V][]K {
+	out := make(map[V][]K, len(in))
+	for k, v := range in {
+		outv, alreadyExists := out[v]
+		if !alreadyExists {
+			outv = make([]K, 0, 1)
+		}
+		outv = append(outv, k)
+		out[v] = outv
+	}
+	return out
+}

@@ -36,16 +36,65 @@ func (s Set[T]) Contains(val T) bool {
 	return hasVal
 }
 
+// All returns true if all the given values are contained within the set.
+// This is similar to running:
+//
+//	s.Intersection(set.New(vals...)).Len()==len(vals)
+//
+// This is both more efficient and easier to read in many cases.
+func (s Set[T]) All(vals ...T) bool {
+	for _, val := range vals {
+		if _, contains := s[val]; !contains {
+			return false
+		}
+	}
+	return true
+}
+
+// Any returns true if any of the given values are contained within the
+// set. This is similar to running:
+//
+//	s.Intersection(set.New(vals...)).Len()>0
+//
+// This is both more efficient and easier to read in many cases.
+func (s Set[T]) Any(vals ...T) bool {
+	for _, val := range vals {
+		if _, contains := s[val]; contains {
+			return true
+		}
+	}
+	return false
+}
+
+// None returns true if none of the given values are contained within the
+// set. This is similar to running:
+//
+//	s.Intersection(set.New(vals...)).Len()==0
+//
+// This is both more efficient and easier to read in many cases.
+func (s Set[T]) None(vals ...T) bool {
+	for _, val := range vals {
+		if _, contains := s[val]; contains {
+			return false
+		}
+	}
+	return true
+}
+
 // Insert adds the given value to the set. If the value is already present, this
 // will have no effect.
-func (s Set[T]) Insert(val T) {
-	s[val] = exists
+func (s Set[T]) Insert(vals ...T) {
+	for _, val := range vals {
+		s[val] = exists
+	}
 }
 
 // Delete removes the given value from the set. If the value is not present,
 // this will have no effect.
-func (s Set[T]) Delete(val T) {
-	delete(s, val)
+func (s Set[T]) Delete(val ...T) {
+	for _, val := range val {
+		delete(s, val)
+	}
 }
 
 // Len returns the size of the set.

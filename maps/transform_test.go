@@ -70,3 +70,51 @@ func TestKVs(t *testing.T) {
 		}
 	}
 }
+
+func TestFlip(t *testing.T) {
+	t.Parallel()
+
+	a := map[string]int{
+		"a": 1,
+		"b": 2,
+		"c": 3,
+	}
+
+	vks := maps.Flip(a)
+	assert.Len(t, vks, len(a))
+	for k, v := range a {
+		assert.Contains(t, vks, v)
+		assert.Equal(t, k, vks[v])
+	}
+
+	for k, v := range vks {
+		assert.Contains(t, a, v)
+		assert.Equal(t, k, a[v])
+	}
+}
+
+func TestFlipSlice(t *testing.T) {
+	t.Parallel()
+
+	a := map[string]int{
+		"a": 1,
+		"b": 2,
+		"c": 3,
+		"d": 1,
+		"e": 1,
+	}
+
+	vks := maps.FlipSlice(a)
+	assert.Len(t, vks, 3)
+	for k, v := range a {
+		assert.Contains(t, vks, v)
+		assert.Contains(t, vks[v], k)
+	}
+
+	for k, vs := range vks {
+		for _, v := range vs {
+			assert.Contains(t, a, v)
+			assert.Equal(t, k, a[v])
+		}
+	}
+}
