@@ -61,21 +61,24 @@ func TestSet_Contains(t *testing.T) {
 func TestSet_Delete(t *testing.T) {
 	t.Parallel()
 
-	s := set.New(1, 2, 3)
+	s := set.New(1, 2, 3, 4, 5, 6)
 
 	s.Delete(0)
-	assert.Equal(t, set.New(1, 2, 3), s)
+	assert.Equal(t, set.New(1, 2, 3, 4, 5, 6), s)
 
 	s.Delete(1)
-	assert.Equal(t, set.New(2, 3), s)
+	assert.Equal(t, set.New(2, 3, 4, 5, 6), s)
 
 	s.Delete(2)
-	assert.Equal(t, set.New(3), s)
+	assert.Equal(t, set.New(3, 4, 5, 6), s)
 
 	s.Delete(3)
+	assert.Equal(t, set.New(4, 5, 6), s)
+
+	s.Delete(4, 5, 6)
 	assert.Equal(t, set.New[int](), s)
 
-	s.Delete(4)
+	s.Delete(7)
 	assert.Equal(t, set.New[int](), s)
 }
 
@@ -97,6 +100,9 @@ func TestSet_Insert(t *testing.T) {
 
 	s.Insert(3)
 	assert.Equal(t, set.New(3, 2, 1), s)
+
+	s.Insert(4, 5, 6)
+	assert.Equal(t, set.New(3, 2, 1, 4, 5, 6), s)
 }
 
 func TestSet_Len(t *testing.T) {
@@ -212,4 +218,52 @@ func TestDiff(t *testing.T) {
 	assert.Equal(t, set.New(1, 3), c)
 	assert.Equal(t, set.New(2, 4), one)
 	assert.Equal(t, set.New(5, 7), two)
+}
+
+func TestSet_All(t *testing.T) {
+	t.Parallel()
+
+	s := set.New(1, 2, 3)
+
+	assert.True(t, s.All(1, 2, 3))
+	assert.True(t, s.All(1, 2))
+	assert.True(t, s.All(1))
+	assert.True(t, s.All(2))
+	assert.True(t, s.All(3))
+	assert.False(t, s.All(2, 3, 4))
+	assert.False(t, s.All(2, 4))
+	assert.False(t, s.All(4))
+	assert.False(t, s.All(4, 5, 6))
+}
+
+func TestSet_Any(t *testing.T) {
+	t.Parallel()
+
+	s := set.New(1, 2, 3)
+
+	assert.True(t, s.Any(1, 2, 3))
+	assert.True(t, s.Any(1, 2))
+	assert.True(t, s.Any(1))
+	assert.True(t, s.Any(2))
+	assert.True(t, s.Any(3))
+	assert.True(t, s.Any(2, 3, 4))
+	assert.True(t, s.Any(2, 4))
+	assert.False(t, s.Any(4))
+	assert.False(t, s.Any(4, 5, 6))
+}
+
+func TestSet_None(t *testing.T) {
+	t.Parallel()
+
+	s := set.New(1, 2, 3)
+
+	assert.False(t, s.None(1, 2, 3))
+	assert.False(t, s.None(1, 2))
+	assert.False(t, s.None(1))
+	assert.False(t, s.None(2))
+	assert.False(t, s.None(3))
+	assert.False(t, s.None(2, 3, 4))
+	assert.False(t, s.None(2, 4))
+	assert.True(t, s.None(4))
+	assert.True(t, s.None(4, 5, 6))
 }
