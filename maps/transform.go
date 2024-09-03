@@ -30,3 +30,14 @@ func KVs[K comparable, V any](in map[K]V) []any {
 	}
 	return out
 }
+
+// Flip will return a new map with the keys and values of the input map flipped.
+// That is, the keys of the input map will be the values of the output map and
+// the values of the input map will be the keys of the output map.
+func Flip[K comparable, V comparable](in map[K]V) map[V]K {
+	out := make(map[V]K, len(in))
+	for k, v := range in {
+		out[v] = k
+	}
+	return out
+}
