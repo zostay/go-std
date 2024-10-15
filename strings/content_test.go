@@ -93,6 +93,7 @@ func TestIncrement(t *testing.T) {
 func TestIndent(t *testing.T) {
 	t.Parallel()
 
+	assert.Equal(t, "", strings.Indent("", "    "))
 	assert.Equal(t, "\n    a\n    b\n    c\n", strings.Indent("\na\nb\nc\n", "    "))
 	assert.Equal(t, "    a\n    b\n    c", strings.Indent("a\nb\nc", "    "))
 }
