@@ -1,4 +1,4 @@
-## WIP  TBD
+## v0.9.1  2024-10-15
 
  * :hammer: Fixed buf in `strings.Indent` that caused a panic if the input string was empty.
 
