@@ -286,7 +286,7 @@ func Increment(input string) string {
 // Indent returns the string with each line indented by the given string.
 func Indent(s, indent string) string {
 	startIndent := indent
-	if s[0] == '\n' {
+	if len(s) > 0 && s[0] == '\n' {
 		startIndent = ""
 	}
 	return strings.TrimRight(

@@ -1,3 +1,7 @@
+## WIP  TBD
+
+ * :hammer: Fixed buf in `strings.Indent` that caused a panic if the input string was empty.
+
 ## v0.9.0  2024-09-03
 
  * Adding `maps.Flip`, `maps.FlipSlice`, and `sets.FlipMap`.
