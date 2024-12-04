@@ -1,4 +1,4 @@
-## WIP  TBD
+## v0.10.0  2024-12-04
 
  * Adding `strings.TrimToOnly`.
 
