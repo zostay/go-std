@@ -25,7 +25,7 @@ func TrimToOnly(s string, chars string) string {
 	for _, r := range s {
 		if strings.ContainsRune(chars, r) {
 			out = append(out, r)
-			break
+			continue
 		}
 	}
 	return string(out)
