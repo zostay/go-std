@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GoLinterSettings">
+    <option name="concurrency" value="4" />
+    <option name="enabledLinters">
+      <list>
+        <option value="exportloopref" />
+        <option value="predeclared" />
+        <option value="staticcheck" />
+        <option value="govet" />
+        <option value="errorlint" />
+        <option value="misspell" />
+        <option value="errname" />
+        <option value="gocritic" />
+        <option value="errcheck" />
+        <option value="tparallel" />
+        <option value="ineffassign" />
+        <option value="unparam" />
+        <option value="nolintlint" />
+        <option value="gosec" />
+        <option value="exhaustive" />
+        <option value="gofmt" />
+        <option value="unused" />
+        <option value="whitespace" />
+        <option value="depguard" />
+        <option value="paralleltest" />
+        <option value="godot" />
+        <option value="gosimple" />
+        <option value="prealloc" />
+      </list>
+    </option>
+    <option name="goLinterExe" value="/opt/homebrew/bin/golangci-lint" />
+    <option name="linterSelected" value="true" />
+  </component>
+</project>

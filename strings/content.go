@@ -18,6 +18,19 @@ func ContainsOnly(s, chars string) bool {
 	}) == -1
 }
 
+// TrimToOnly returns the string with all characters removed that are not in the
+// given set of characters.
+func TrimToOnly(s string, chars string) string {
+	var out []rune
+	for _, r := range s {
+		if strings.ContainsRune(chars, r) {
+			out = append(out, r)
+			break
+		}
+	}
+	return string(out)
+}
+
 type runeSlice []rune
 
 // func (rs runeSlice) Less(i, j int) bool {

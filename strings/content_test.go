@@ -17,6 +17,17 @@ func TestContainsOnly(t *testing.T) {
 	assert.False(t, strings.ContainsOnly("a b c", "abc"))
 }
 
+func TestTrimToOnly(t *testing.T) {
+	t.Parallel()
+
+	assert.Equal(t, "abc", strings.TrimToOnly("abc", "abc"))
+	assert.Equal(t, "a", strings.TrimToOnly("a", "abc"))
+	assert.Equal(t, "aaaaaabbbbbbccccc", strings.TrimToOnly("aaaaaabbbbbbccccc", "cba"))
+	assert.Equal(t, "abc", strings.TrimToOnly("a b c", "abc"))
+	assert.Equal(t, "", strings.TrimToOnly("abc", "def"))
+	assert.Equal(t, "abde", strings.TrimToOnly("abcdef", "adbe"))
+}
+
 func TestFromRange(t *testing.T) {
 	t.Parallel()
 
