@@ -9,6 +9,7 @@ provided tools:
 Here's a few additional operations for working with slices of bytes:
 
 * `ContainsOnly(b, chars)`
+* `TrimToOnly(b, chars)`
 * `FromRange(a, z)`
 * `Reverse(b)`
 * `Indent(b, indent)`
